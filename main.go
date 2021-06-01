@@ -32,14 +32,27 @@ if isHeistOn && openedVault >= 70 {
 
 leftSafely:= rand.Intn(5)
 if isHeistOn {
-  switch leftSafely:
+  switch leftSafely{
   case 0:
     isHeistOn = false
     fmt.Print("You got caught on your way out!")
   case 1:
     isHeistOn = false
     fmt.Print("Turns out the vault doors don't open from the inside...")
-
+  case 2:
+    isHeistOn = false
+    fmt.Print("You didn't account for security lasers....")
+  case 3:
+    isHeistOn = false
+    fmt.Print("The guards released tear gas...")
+  default:
+    fmt.Print("Start the getaway car!")
+  }
+}
+if isHeistOn {
+  //how much was stolen in the heist
+  amtStolen := 10000 + rand.Intn(1000000)
+  fmt.Print("You successfully stole $", amtStolen)
 }
 
   fmt.Print(isHeistOn)
